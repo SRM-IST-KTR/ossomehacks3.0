@@ -103,7 +103,7 @@ const ThemeCard = ({ theme }) => {
               {theme.titleLines ? (
                 <>
                   {theme.titleLines.map((line, index) => (
-                    <p key={index} className={index === 0 ? "mb-1" : ""}>
+                    <p key={`${theme.id}-${index}`} className={index === 0 ? "mb-1" : ""}>
                       {line}
                     </p>
                   ))}
