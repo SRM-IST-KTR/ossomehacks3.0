@@ -7,31 +7,37 @@ const THEMES = [
   {
     id: 1,
     title: 'EdTech',
+    titleLines: ['EdTech'],
     image: '/tracks/edtech.png',
   },
   {
     id: 2,
     title: 'AgriTech',
+    titleLines: ['AgriTech'],
     image: '/tracks/Agritech.png',
   },
   {
     id: 3,
     title: 'FinTech',
+    titleLines: ['FinTech'],
     image: '/tracks/fintech.png',
   },
   {
     id: 4,
     title: 'HealthTech',
+    titleLines: ['HealthTech'],
     image: '/tracks/healthtech.png',
   },
   {
     id: 5,
     title: 'Web3 & Crypto',
+    titleLines: ['Web3 &', 'Crypto'],
     image: '/tracks/web3.png',
   },
   {
     id: 6,
     title: 'Open Innovation',
+    titleLines: ['Open', 'Innovation'],
     image: '/tracks/openinovation.png',
   },
 ];
@@ -98,13 +104,16 @@ const ThemeCard = ({ theme }) => {
               }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              {theme.title.includes(' ') ? (
+              {theme.titleLines.length > 1 ? (
                 <>
-                  <p className="mb-1">{theme.title.split(' ').slice(0, -1).join(' ')}</p>
-                  <p>{theme.title.split(' ').slice(-1)}</p>
+                  {theme.titleLines.map((line, index) => (
+                    <p key={index} className={index === 0 ? "mb-1" : ""}>
+                      {line}
+                    </p>
+                  ))}
                 </>
               ) : (
-                <p className="mt-4">{theme.title}</p>
+                <p className="mt-4">{theme.titleLines[0]}</p>
               )}
             </motion.div>
 
