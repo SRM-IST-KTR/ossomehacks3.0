@@ -7,25 +7,21 @@ const THEMES = [
   {
     id: 1,
     title: 'EdTech',
-    titleLines: ['EdTech'],
     image: '/tracks/edtech.png',
   },
   {
     id: 2,
     title: 'AgriTech',
-    titleLines: ['AgriTech'],
     image: '/tracks/Agritech.png',
   },
   {
     id: 3,
     title: 'FinTech',
-    titleLines: ['FinTech'],
     image: '/tracks/fintech.png',
   },
   {
     id: 4,
     title: 'HealthTech',
-    titleLines: ['HealthTech'],
     image: '/tracks/healthtech.png',
   },
   {
@@ -104,7 +100,7 @@ const ThemeCard = ({ theme }) => {
               }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              {theme.titleLines.length > 1 ? (
+              {theme.titleLines ? (
                 <>
                   {theme.titleLines.map((line, index) => (
                     <p key={index} className={index === 0 ? "mb-1" : ""}>
@@ -113,7 +109,7 @@ const ThemeCard = ({ theme }) => {
                   ))}
                 </>
               ) : (
-                <p className="mt-4">{theme.titleLines[0]}</p>
+                <p className="mt-4">{theme.title}</p>
               )}
             </motion.div>
 
