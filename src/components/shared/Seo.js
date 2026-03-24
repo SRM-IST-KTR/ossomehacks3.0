@@ -4,7 +4,7 @@ export default function Seo({
     title = "OSSome Hacks 3.0 | National Level Hackathon by GitHub Community SRM",
     description = "Unleash your creativity at OSSome Hacks 3.0! A National-level hackathon by GitHub Community SRM at SRMIST Chennai. Compete for massive prizes, connect with experts, and build the future in GenAI, Web3, HealthTech, and more. Register Today!",
     keywords = "Hackathon, SRM, GitHub Community SRM, Open Source, Coding, Innovation, OSSome Hacks, SRMIST, Student Hackathon India, Chennai Hackathon, Coding Competition, Prize Pool, Mentorship, GenAI, Web3, EdTech, HealthTech, FinTech, Hackathon 2026",
-    image = "/socialFrame.png",
+    image = "/socialFrame.jpg",
     url = "https://ossomehacks.githubsrmist.in"
 }) {
     const siteTitle = title;
@@ -44,7 +44,7 @@ export default function Seo({
             <meta property="og:image" content={absoluteImageUrl} />
             <meta property="og:image:url" content={absoluteImageUrl} />
             <meta property="og:image:secure_url" content={absoluteImageUrl} />
-            <meta property="og:image:type" content="image/png" />
+            <meta property="og:image:type" content="image/jpg" />
             <meta property="og:image:width" content="1476" />
             <meta property="og:image:height" content="768" />
             <meta property="og:image:alt" content="OSSome Hacks 3.0 Banner" />
