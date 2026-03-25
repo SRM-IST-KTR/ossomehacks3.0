@@ -164,13 +164,47 @@ export const pitchScripts = [
 export const trackResources = [
   {
     track: "Claw & Shield",
-    description: "Security-first builds, resilient architecture, and threat-aware product decisions.",
+    description: "The following are optional references to help teams get started. They are not required reading.",
     links: [
       { label: "Claw & Shield Rulebook (PDF)", url: "/resources/claw-shield-rulebook.pdf" },
-      { label: "OpenClaw Docs", url: "https://docs.openclaw.ai/start/getting-started" },
-      { label: "OWASP Top 10", url: "https://owasp.org/www-project-top-ten/" },
-      { label: "Web Security Academy", url: "https://portswigger.net/web-security" },
-      { label: "NIST Cybersecurity Framework", url: "https://www.nist.gov/cyberframework" },
+    ],
+    categories: [
+      {
+        category: "Core Frameworks",
+        links: [
+          { label: "OpenClaw", description: "Open-source autonomous AI agent framework", url: "https://github.com/openclaw/openclaw" },
+          { label: "OpenClaw Documentation", description: "Official docs covering tools, skills, and security", url: "https://docs.openclaw.ai/" },
+          { label: "OpenClaw Skills Overview", description: "How skills work and how to create them", url: "https://openclawdoc.com/docs/skills/overview/" },
+          { label: "ClawHub", description: "Central skill registry for OpenClaw", url: "https://clawhub.com/" },
+        ],
+      },
+      {
+        category: "Intent Enforcement",
+        links: [
+          { label: "ArmorClaw", description: "Intent enforcement plugin for OpenClaw agents", url: "https://github.com/armoriq/armorclaw" },
+          { label: "ArmorIQ OpenClaw Docs", description: "Setup, concepts, and configuration", url: "https://docs-openclaw.armoriq.ai/" },
+          { label: "ArmorIQ", description: "Intent Intelligence platform for AI agent security", url: "https://armoriq.ai/" },
+        ],
+      },
+      {
+        category: "Paper Trading APIs",
+        links: [
+          { label: "Alpaca Paper Trading", description: "Free simulated trading with real-time market data", url: "https://docs.alpaca.markets/docs/paper-trading" },
+          { label: "Alpaca Trading API", description: "Order execution, positions, and market data", url: "https://docs.alpaca.markets/docs/trading-api" },
+          { label: "Alpaca MCP Server", description: "Official MCP server for natural-language trading", url: "https://github.com/alpacahq/alpaca-mcp-server" },
+          { label: "OpenClaw Alpaca Trading Skill", description: "Community-built OpenClaw skill for Alpaca", url: "https://github.com/lacymorrow/openclaw-alpaca-trading-skill" },
+          { label: "TradeStation SIM API", description: "Alternative paper trading API", url: "https://api.tradestation.com/docs/fundamentals/sim-vs-live/" },
+        ],
+      },
+      {
+        category: "Security Background",
+        links: [
+          { label: "Microsoft: Running OpenClaw Safely", description: "Identity, isolation, and runtime risk", url: "https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/" },
+          { label: "Cisco: Personal AI Agents Are a Security Nightmare", description: "Enterprise risk analysis", url: "https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare" },
+          { label: "ClawJacked Vulnerability Disclosure", description: "Agent reasoning hijack via malicious websites", url: "https://thehackernews.com/2026/02/clawjacked-flaw-lets-malicious-sites.html" },
+          { label: "Bitdefender AI Skills Checker", description: "Free security scanner for OpenClaw skills", url: "https://www.bitdefender.com/en-us/consumer/ai-skills-checker" },
+        ],
+      },
     ],
   },
   {

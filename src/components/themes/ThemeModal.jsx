@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { trackResources } from "@/data/resources";
 
 export default function ThemeModal({ theme, open, onClose }) {
   useEffect(() => {
@@ -75,7 +76,7 @@ export default function ThemeModal({ theme, open, onClose }) {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,198,39,0.12),_transparent_65%)]" />
               </div>
 
-              <div className="min-h-0 overflow-y-auto px-5 py-5 md:px-7 md:py-6">
+              <div className="min-h-0 overflow-y-auto scrollbar-none px-5 py-5 md:px-7 md:py-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 <p className="max-w-3xl text-sm leading-relaxed text-text/95 md:text-base">
                   {theme.summary}
                 </p>
@@ -86,16 +87,84 @@ export default function ThemeModal({ theme, open, onClose }) {
                       <h4 className="text-base font-semibold uppercase tracking-[0.06em] text-yellow md:text-lg">
                         {section.title}
                       </h4>
-                      <ul className="mt-2 space-y-2">
+                      <ul className="mt-2 space-y-2.5">
                         {section.items.map((item) => (
-                          <li key={item} className="text-sm leading-relaxed text-text/90 md:text-[15px]">
-                            {item}
+                          <li key={item} className="flex gap-2 text-sm leading-relaxed text-text/90 md:text-[15px]">
+                            <span className="mt-[3px] shrink-0 text-[10px] text-yellow/70">▸</span>
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
                     </section>
                   ))}
                 </div>
+
+                {(() => {
+                  const res = trackResources.find(
+                    (r) => r.track === theme.title
+                  );
+                  if (!res) return null;
+                  return (
+                    <div className="mt-6 border-t border-yellow/30 pt-5">
+                      <h4 className="text-base font-semibold uppercase tracking-[0.06em] text-yellow md:text-lg">
+                        Resources
+                      </h4>
+                      <p className="mt-1 text-sm text-text/70">
+                        {res.description}
+                      </p>
+
+                      {/* Rulebook / top-level links */}
+                      {res.links?.length > 0 && (
+                        <ul className="mt-3 space-y-1.5">
+                          {res.links.map((link) => (
+                            <li key={link.label} className="flex items-baseline gap-2">
+                              <span className="shrink-0 text-[9px] text-yellow/50">▸</span>
+                              <a
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm text-yellow/90 underline decoration-yellow/30 underline-offset-2 transition hover:text-yellow hover:decoration-yellow/70 md:text-[15px]"
+                              >
+                                {link.label} <span className="text-[10px]">↗</span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* Categorised resources */}
+                      {res.categories?.map((cat) => (
+                        <div key={cat.category} className="mt-4">
+                          <h5 className="text-sm font-semibold uppercase tracking-[0.05em] text-yellow/80">
+                            {cat.category}
+                          </h5>
+                          <ul className="mt-2 space-y-1.5">
+                            {cat.links.map((link) => (
+                              <li key={link.label} className="flex items-baseline gap-2">
+                                <span className="shrink-0 text-[9px] text-yellow/50">▸</span>
+                                <span>
+                                  <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm text-yellow/90 underline decoration-yellow/30 underline-offset-2 transition hover:text-yellow hover:decoration-yellow/70 md:text-[15px]"
+                                  >
+                                    {link.label} <span className="text-[10px]">↗</span>
+                                  </a>
+                                  {link.description && (
+                                    <span className="ml-1.5 text-xs text-text/50">
+                                      — {link.description}
+                                    </span>
+                                  )}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           </motion.div>

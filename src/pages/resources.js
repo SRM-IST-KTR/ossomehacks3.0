@@ -206,7 +206,7 @@ export default function ResourcesPage() {
         </motion.div>
       </section>
 
-      <section className="px-4 py-8 md:px-10 md:py-12" id="tracks">
+      {/* <section className="px-4 py-8 md:px-10 md:py-12" id="tracks">
         <motion.div {...sectionAnim} className="mx-auto w-full max-w-7xl">
           <SectionHeading text="Track Resources" />
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -214,19 +214,44 @@ export default function ResourcesPage() {
               <article key={track.track} className="border border-text/35 bg-[#1f4047]/20 p-5 md:p-6">
                 <h3 className="text-2xl font-semibold text-yellow">{track.track}</h3>
                 <p className="mt-2 text-sm text-text/85">{track.description}</p>
-                <div className="mt-5 space-y-2">
-                  {track.links.map((link) => (
-                    <a
-                      key={link.url}
-                      href={link.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block border-b border-text/20 py-2 text-sm hover:text-yellow hover:border-yellow/50 transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
+
+                {track.categories?.map((cat) => (
+                  <div key={cat.category} className="mt-5">
+                    <h4 className="text-sm font-semibold uppercase tracking-[0.08em] text-yellow/80">{cat.category}</h4>
+                    <div className="mt-2 space-y-2">
+                      {cat.links.map((link) => (
+                        <a
+                          key={link.url}
+                          href={link.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-baseline gap-2 border-b border-text/20 py-2 text-sm hover:text-yellow hover:border-yellow/50 transition-colors"
+                        >
+                          <span>{link.label}</span>
+                          {link.description && (
+                            <span className="text-xs text-text/50">— {link.description}</span>
+                          )}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+
+                {track.links?.length > 0 && (
+                  <div className="mt-5 space-y-2">
+                    {track.links.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="block border-b border-text/20 py-2 text-sm hover:text-yellow hover:border-yellow/50 transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </article>
             ))}
           </div>
@@ -248,7 +273,7 @@ export default function ResourcesPage() {
             </div>
           </div>
         </motion.div>
-      </section>
+      </section> */}
 
             <section className="px-4 pb-12 pt-8 md:px-10" id="submit">
         <motion.div {...sectionAnim} className="mx-auto w-full max-w-7xl border border-yellow/50 bg-[#1f4047]/20 p-6 md:p-8">

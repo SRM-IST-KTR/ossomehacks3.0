@@ -31,7 +31,7 @@ export default function About() {
 
       <div className="w-full">
         <p className="text-text text-lg md:text-3xl font-medium leading-normal whitespace-pre-wrap">
-          OssomeHacks 3.0 builds upon the success of its previous editions, carrying forward a legacy of innovation, creativity, and collaboration. This 36-hour hackathon unites passionate tech enthusiasts to address real-world challenges with purpose and ingenuity. Designed to spark learning, problem-solving, and impactful innovation, OssomeHacks 3.0 goes beyond competition, celebrating the spirit of open-source development and empowering participants to create solutions that truly make a difference.
+          OSSome Hacks 3.0 is a 36-hour hackathon uniting passionate tech enthusiasts to tackle challenges with creativity and ingenuity. Building on a legacy of innovation and collaboration, it goes beyond just competition, it sparks learning, problem-solving, and impactful thinking. Celebrating the spirit of open-source development, it empowers participants to create solutions that truly make a difference.
         </p>
       </div>
     </section>
